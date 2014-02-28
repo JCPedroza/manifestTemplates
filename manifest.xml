@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+This manifest will generate a fully defined application that will be installed to the 
+SD card (on Android 2.2 and over), will have a fixed orientation, will not explode on
+a configuration change (android:condigCHanges inside activity), will allow you to access 
+the SD card and wake locks, and will work on all Android versions starting from 1.5 up 
+to the latest version. 
+-->
+
+<!--
+Needs edit: package, uses-sdk, label, name.
+-->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="example.package"
+    android:versionCode="1"
+    android:versionName="1.0" 
+    android:installLocation="preferExternal" >
+    
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+
+    <uses-sdk
+        android:minSdkVersion="3"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:icon="@drawable/ic_launcher"
+        android:label="labelExample" >
+        
+        <activity
+            android:name=".ActivityNameExample"
+            android:label="labelExample" 
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|keyboardHidden|orientation" >
+            
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+        </activity>
+         
+    </application>
+    
+</manifest>
